@@ -1,7 +1,10 @@
+import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:gap/gap.dart';
+import 'package:ticketing_app/utils/app_styles.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -9,18 +12,23 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFE5E5E5),
+      backgroundColor: Styles.bgColor,
       body: ListView(
         children: [
           Container(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
+                const Gap(10),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text("Good Morning"),
-                        const Text("Book Tickets"),
+                        Text("Good Morning", style: Styles.headLineStyle3),
+                        const Gap(1),
+                        Text("Book Tickets", style: Styles.headLineStyle1),
                       ],
                     ),
                     Container(
@@ -34,7 +42,15 @@ class HomeScreen extends StatelessWidget {
                           )),
                     )
                   ],
-                )
+                ),
+                const Gap(25),
+                Row(
+                  children: [
+                    const Icon(FluentSystemIcons.ic_fluent_search_regular,
+                        color: Color(0xFFBFC205)),
+                    Text("Search", style: Styles.headLineStyle4),
+                  ],
+                ),
               ],
             ),
           )
