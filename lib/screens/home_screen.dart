@@ -44,11 +44,34 @@ class HomeScreen extends StatelessWidget {
                   ],
                 ),
                 const Gap(25),
+                Container(
+                  height: 45,
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: Color.fromARGB(15, 134, 134, 134),
+                  ),
+                  child: Row(
+                    children: [
+                      const Icon(FluentSystemIcons.ic_fluent_search_regular,
+                          color: Color(0xFFBFC205)),
+                      Text("Search", style: Styles.headLineStyle4),
+                    ],
+                  ),
+                ),
+                const Gap(15),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Icon(FluentSystemIcons.ic_fluent_search_regular,
-                        color: Color(0xFFBFC205)),
-                    Text("Search", style: Styles.headLineStyle4),
+                    Text("Upcoming Flights", style: Styles.headLineStyle2),
+                    InkWell(
+                      onTap: () {
+                        print("You are tapped");
+                      },
+                      child: Text("View All",
+                          style: Styles.textStyle
+                              .copyWith(color: Styles.primaryColor)),
+                    ),
                   ],
                 ),
               ],
