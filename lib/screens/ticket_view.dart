@@ -6,6 +6,7 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:ticketing_app/utils/app_layout.dart';
 import 'package:ticketing_app/widgets/column_layout.dart';
+import 'package:ticketing_app/widgets/layout_builder_widget.dart';
 import 'package:ticketing_app/widgets/thick_container.dart';
 
 import '../utils/app_styles.dart';
@@ -59,31 +60,8 @@ class TicketView extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: AppLayout.getHeight(24),
-                        child: LayoutBuilder(
-                          builder: (BuildContext context,
-                              BoxConstraints constraints) {
-                            print(
-                                "The Width is ${constraints.constrainWidth()}");
-                            return Flex(
-                                direction: Axis.horizontal,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                mainAxisSize: MainAxisSize.max,
-                                children: List.generate(
-                                    (constraints.constrainWidth() / 6).floor(),
-                                    (index) => SizedBox(
-                                          width: 3,
-                                          height: 1,
-                                          child: DecoratedBox(
-                                              decoration: BoxDecoration(
-                                                  color: isColor == null
-                                                      ? Colors.white
-                                                      : Colors.grey.shade300)),
-                                        )));
-                          },
-                        ),
-                      ),
+                          height: AppLayout.getHeight(24),
+                          child: AppLayoutBuilderWidget(sections: 6)),
                     ])),
                     ThickContainer(isColor: true),
                     const Spacer(),
@@ -217,26 +195,11 @@ class TicketView extends StatelessWidget {
                         secondText: "Departure time",
                         alignment: CrossAxisAlignment.center,
                         isColor: false),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(
-                          ticket['number'].toString(),
-                          style: isColor == null
-                              ? Styles.headLineStyle3
-                                  .copyWith(color: Colors.white)
-                              : Styles.headLineStyle3,
-                        ),
-                        const Gap(5),
-                        Text(
-                          "Number",
-                          style: isColor == null
-                              ? Styles.headLineStyle4
-                                  .copyWith(color: Colors.white)
-                              : Styles.headLineStyle4,
-                        ),
-                      ],
-                    ),
+                    AppColumnLayout(
+                        firstText: ticket['number'].toString(),
+                        secondText: "Number",
+                        alignment: CrossAxisAlignment.end,
+                        isColor: false),
                   ],
                 )
               ],
