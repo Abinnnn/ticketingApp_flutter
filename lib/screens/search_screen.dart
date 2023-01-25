@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:gap/gap.dart';
 import 'package:ticketing_app/utils/app_layout.dart';
 import 'package:ticketing_app/widgets/icon_text_widget.dart';
+import 'package:ticketing_app/widgets/ticket_tabs.dart';
 
 import '../utils/app_styles.dart';
 import '../widgets/double_text_widget.dart';
@@ -27,52 +28,9 @@ class SearchScreen extends StatelessWidget {
               style: Styles.headLineStyle1.copyWith(
                   fontSize: AppLayout.getWidth(30),
                   fontWeight: FontWeight.w700)),
-          Gap(AppLayout.getHeight(20)),
-          FittedBox(
-            child: Container(
-              padding: EdgeInsets.all(3.5),
-              child: Row(
-                children: [
-                  //airline ticket section
-                  Container(
-                    width: size.width * .44,
-                    padding:
-                        EdgeInsets.symmetric(vertical: AppLayout.getHeight(7)),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.horizontal(
-                          left: Radius.circular(AppLayout.getHeight(50))),
-                      color: Colors.white,
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Airline ticket",
-                      ),
-                    ),
-                  ),
-
-                  //hotels section
-
-                  Container(
-                    width: size.width * .44,
-                    padding:
-                        EdgeInsets.symmetric(vertical: AppLayout.getHeight(7)),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.horizontal(
-                          right: Radius.circular(AppLayout.getHeight(50))),
-                      color: Colors.transparent,
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Hotels",
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(AppLayout.getHeight(50)),
-                  color: const Color(0xFFF4F6FD)),
-            ),
+          AppTicketTabs(
+            firstTab: "Airline Ticket",
+            secondTab: "Hotels",
           ),
           Gap(AppLayout.getHeight(25)),
           const AppIconText(
@@ -99,7 +57,7 @@ class SearchScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                height: AppLayout.getHeight(400),
+                height: AppLayout.getHeight(425),
                 width: size.width * 0.42,
                 padding: EdgeInsets.symmetric(
                     horizontal: AppLayout.getHeight(15),
@@ -141,7 +99,7 @@ class SearchScreen extends StatelessWidget {
                     children: [
                       Container(
                         width: size.width * 0.44,
-                        height: AppLayout.getHeight(210),
+                        height: AppLayout.getHeight(200),
                         decoration: BoxDecoration(
                           color: Color(0xFF3Ab8b8),
                           borderRadius:
@@ -183,6 +141,49 @@ class SearchScreen extends StatelessWidget {
                         ),
                       )
                     ],
+                  ),
+                  Gap(AppLayout.getHeight(15)),
+                  Container(
+                    width: size.width * 0.44,
+                    height: AppLayout.getHeight(210),
+                    padding: EdgeInsets.symmetric(
+                        vertical: AppLayout.getHeight(15),
+                        horizontal: AppLayout.getWidth(15)),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(
+                          AppLayout.getHeight(18),
+                        ),
+                        color: Color(0xFFEC6545)),
+                    child: Column(
+                      children: [
+                        Text(
+                          "Take Love",
+                          style: Styles.headLineStyle2.copyWith(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        Gap(AppLayout.getHeight(40)),
+                        RichText(
+                            text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: '😍',
+                              style: TextStyle(fontSize: 28),
+                            ),
+                            TextSpan(
+                              text: '😘',
+                              style: TextStyle(fontSize: 40),
+                            ),
+                            TextSpan(
+                              text: '😜',
+                              style: TextStyle(fontSize: 28),
+                            ),
+                          ],
+                        ))
+                      ],
+                    ),
                   ),
                 ],
               ),
