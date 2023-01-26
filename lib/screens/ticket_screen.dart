@@ -148,13 +148,15 @@ class TicketScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(10),
-                        bottomRight: Radius.circular(10))),
+                        bottomLeft: Radius.circular(AppLayout.getHeight(10)),
+                        bottomRight: Radius.circular(AppLayout.getHeight(10)))),
                 margin: EdgeInsets.only(
-                  left: 15,
-                  right: 15,
+                  left: AppLayout.getHeight(15),
+                  right: AppLayout.getHeight(15),
                 ),
-                padding: EdgeInsets.only(top: 15, bottom: 15),
+                padding: EdgeInsets.only(
+                    top: AppLayout.getHeight(15),
+                    bottom: AppLayout.getHeight(15)),
                 child: Container(
                   color: Colors.white,
                   padding:
@@ -173,7 +175,41 @@ class TicketScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              Gap(AppLayout.getHeight(20)),
+              TicketView(
+                ticket: ticketList[0],
+              ),
             ],
+          ),
+          Positioned(
+            left: AppLayout.getHeight(18),
+            top: AppLayout.getHeight(295),
+            child: Container(
+              padding: EdgeInsets.all(2),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(color: Styles.textColor, width: 2),
+              ),
+              child: CircleAvatar(
+                maxRadius: 4,
+                backgroundColor: Styles.textColor,
+              ),
+            ),
+          ),
+          Positioned(
+            right: AppLayout.getHeight(18),
+            top: AppLayout.getHeight(295),
+            child: Container(
+              padding: EdgeInsets.all(2),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(color: Styles.textColor, width: 2),
+              ),
+              child: CircleAvatar(
+                maxRadius: 4,
+                backgroundColor: Styles.textColor,
+              ),
+            ),
           ),
         ],
       ),
